@@ -169,11 +169,97 @@
     }
   </style>    
 </head>    
-<body>    
+<body> 
+
+ <!-- EMBEDS POR MES (OCULTOS) PARA EVENTOS -->
+<div id="embed-enero" style="display:none;">
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/hwfggmas.json"
+    trigger="morph"
+    state="morph-open"
+    colors="primary:#e83a30,secondary:#e8e230"
+    style="width:50px;height:50px">
+</lord-icon>
+</div>
+
+<div id="embed-febrero" style="display:none;"> <!-- SAN VALENTÍN -->
+  <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+<animated-icons
+  src="https://animatedicons.co/get-icon?name=Cupid&style=minimalistic&token=02e4a243-2939-468a-a1f0-632c7e448ddb"
+  trigger="loop"
+  attributes='{"variationThumbColour":"#536DFE","variationName":"Two Tone","variationNumber":2,"numberOfGroups":2,"backgroundIsGroup":false,"strokeWidth":1.5,"defaultColours":{"group-1":"#FFFFFFFF","group-2":"#3E58E600","background":"#FF0000FF"}}'
+  height="50"
+  width="50"
+></animated-icons>
+</div>
+
+<div id="embed-marzo" style="display:none;"> <!-- CARNAVAL -->
+  <script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/iujnhzgo.json"
+    trigger="loop"
+    colors="primary:#ff0000,secondary:#00ff00,tertiary:#0000ff,quaternary:#000000,quinary:#000000"
+    style="width:50px;height:50px">
+</lord-icon>
+</div>
+
+<div id="embed-abril" style="display:none;"><!-- SEMANA SANTA -->
+    <script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/lubptvmf.json"
+    trigger="loop"
+    delay="2000"
+    style="width:50px;height:50px">
+</lord-icon>
+</div>
+
+<div id="embed-octubre" style="display:none;"> <!-- HALLOWEEN -->
+  <script src="https://animatedicons.co/scripts/embed-animated-icons.js"></script>
+<animated-icons
+  src="https://animatedicons.co/get-icon?name=Halloween&style=minimalistic&token=bd05d5da-2490-49ed-8dc7-1c6baf21aa03"
+  trigger="loop"
+  attributes='{"variationThumbColour":"#536DFE","variationName":"Two Tone","variationNumber":2,"numberOfGroups":2,"backgroundIsGroup":false,"strokeWidth":1.5,"defaultColours":{"group-1":"#ffff00","group-2":"#FE535300","background":"#FFAA00FF"}}'
+  height="50"
+  width="50"
+></animated-icons>
+</div>
+  
+<div id="embed-diciembre" style="display:none;"> <!-- NAVIDAD -->
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
+<lord-icon
+    src="https://cdn.lordicon.com/jfphoois.json"
+    trigger="loop"
+    state="loop-cycle"
+    style="width:50px;height:50px">
+</lord-icon>
+</div>
+
+<div id="embed-aquielmes" style="display:none;">
+    <!-- Aquí el embed -->
+</div>
+
+<!-- NO MÁS: Hasta diciembre -->
+
+<!-- ===== -->
+
   <!-- CABECERA -->    
   <header class="glass-header" id="cabecera" aria-label="Cabecera translúcida con luz reactiva">    
     <div class="brand">Oracle System</div>    
-    <div class="title">MAIN MENU</div>    
+    <div class="title">MAIN MENU</div> 
+    
+            <!-- CONTENEDOR PARA EL EMBED MENSUAL EVENTOS -->
+    <div id="embed-mensual" style="
+        position: absolute;
+        right: 0px;
+        top: 30%;
+        transform: translateY(-50%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 80px;
+        width: 80px;
+    "></div>
   </header>    
   
   <!-- CONTENIDO CON BOTONES -->    
@@ -299,6 +385,39 @@
   });
 </script>
 
+<!-- Fechas control event -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const mesActual = new Date().getMonth(); // 0–11
+
+    const embeds = [
+        "embed-enero",
+        "embed-febrero",
+        "embed-marzo",
+        "embed-abril",
+        "embed-mayo",
+        "embed-junio",
+        "embed-julio",
+        "embed-agosto",
+        "embed-septiembre",
+        "embed-octubre",
+        "embed-noviembre",
+        "embed-diciembre"
+    ];
+
+    // Limpia el contenedor
+    const target = document.getElementById("embed-mensual");
+    target.innerHTML = "";
+
+    const idMostrar = embeds[mesActual];
+    const contenido = document.getElementById(idMostrar);
+
+    if (contenido) {
+        target.innerHTML = contenido.innerHTML; // Inyecta el contenido del mes
+    }
+});
+</script>
 
     <!-- ========TIEMPO======== -->
   <!-- ==========================

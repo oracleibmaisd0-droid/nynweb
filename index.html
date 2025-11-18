@@ -176,7 +176,7 @@
 <script src="https://cdn.lordicon.com/lordicon.js"></script>
 <lord-icon
     src="https://cdn.lordicon.com/hwfggmas.json"
-    trigger="click"
+    trigger="morph"
     state="morph-open"
     colors="primary:#e83a30,secondary:#e8e230"
     style="width:50px;height:50px">
@@ -266,7 +266,7 @@
   <main>    
     <div class="buttons-container">
         
-        <button class="custom-btn" data-url="https://oracleapi.netlify.app"><span>ORACLE API</span></button>
+        <button class="custom-btn" data-url="https://oraclewebapi.netlify.app"><span>ORACLE API</span></button>
       <button class="custom-btn" data-url="https://oraclefile.netlify.app"><span>Archivador</span></button>
       <button class="custom-btn" data-url="https://oraclewebcinema.netlify.app"><span>Cine</span></button>
       <button class="custom-btn" data-url="https://www.instagram.com/oracle.quantum.ai"><span>Instagram Oracle</span></button>    
@@ -353,7 +353,7 @@
   </script>  
   
   
-  
+ <!-- Marcador NEW --> 
 <script>
   const hoy = new Date();
   const botones = document.querySelectorAll('.custom-btn span');
@@ -362,7 +362,7 @@
     const texto = span.textContent.trim();
 
     if(texto === "Archivador"){
-      const fechaCine = new Date(2025, 11); //A,M,D
+      const fechaCine = new Date(2026, 11); //A,M,D
       span.style.color = (hoy < fechaCine) ? "red" : "white";
     }
 
@@ -425,11 +425,11 @@ document.addEventListener("DOMContentLoaded", () => {
   =========================== -->
   
   <script>
-  const fechaLimiteUpdate = new Date(2025, 1);
+  const fechaLimiteUpdate = new Date(2025, 11);
   const update = new Date();
 
   if (update < fechaLimiteUpdate) {
-    alert("Test");
+    alert("Solucionado servicios cortados en Aplicaciones Web");
   }
   </script>
 </body>  

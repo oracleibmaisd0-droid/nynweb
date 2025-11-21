@@ -362,18 +362,18 @@
     const texto = span.textContent.trim();
 
     if(texto === "Archivador"){
-      const fechaCine = new Date(2026, 11); //A,M,D
-      span.style.color = (hoy < fechaCine) ? "red" : "white";
+      const fechaArchivador = new Date(2026, 11); //A,M,D
+      span.style.color = (hoy < fechaArchivador) ? "red" : "white";
     }
 
     if(texto === "Cine"){
-      const fechaInsta = new Date(2025, 10); 
-      span.style.color = (hoy < fechaInsta) ? "red" : "white";
+      const fechaCine = new Date(2025, 11); 
+      span.style.color = (hoy < fechaCine) ? "red" : "white";
     }
 
     if(texto === "ORACLE API"){
-      const fechaGaleria = new Date(2025, 11);
-      span.style.color = (hoy < fechaGaleria) ? "red" : "white";
+      const fechaApi = new Date(2025, 11);
+      span.style.color = (hoy < fechaApi) ? "red" : "white";
     }
 
         if(texto === "Galería 3D"){
@@ -382,8 +382,8 @@
     }
     
         if(texto === "Podcast"){
-      const fechaGaleria = new Date(2025, 11);
-      span.style.color = (hoy < fechaGaleria) ? "red" : "white";
+      const fechaPodcast = new Date(2025, 11);
+      span.style.color = (hoy < fechaPodcast) ? "red" : "white";
     }
 
     // Añade más botones aquí siguiendo el mismo patrón

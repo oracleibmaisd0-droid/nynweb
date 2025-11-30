@@ -266,16 +266,17 @@
   <main>    
     <div class="buttons-container">
         
-        <button class="custom-btn" data-url="https://oraclewebapi.netlify.app"><span>ORACLE API</span></button>
       <button class="custom-btn" data-url="https://oraclefile.netlify.app"><span>Archivador</span></button>
-      <button class="custom-btn" data-url="https://oraclewebcinema.netlify.app"><span>Cine</span></button>
-      <button class="custom-btn" data-url="https://www.instagram.com/oracle.quantum.ai"><span>Instagram Oracle</span></button>    
-      <button class="custom-btn" data-url="https://oraclewebgallery.netlify.app"><span>Galería 3D</span></button>
-      <button class="custom-btn" data-url="https://oraclewebpodcast.netlify.app"><span>Podcast</span></button>
-      <button class="custom-btn" data-url="https://dialogsystem.blogspot.com/2025/08/panel-informativo-document.html"><span>Comprobar Alertas</span></button> 
-      <button class="custom-btn" data-url="https://grupovenus.com"><span>Grupo Venus</span></button> 
-      <button class="custom-btn" data-url="https://mysteryplanet.com.ar/site/?"><span>Noticias alternativas</span></button>
       <button class="custom-btn" data-url="https://drive.google.com/file/d/1P93nB39tM1GJtr6rGmaUYA4bIkFfrY0w/view"><span>Cartas Illuminati</span></button>
+      <button class="custom-btn" data-url="https://oraclewebcinema.netlify.app"><span>Cine</span></button>
+      <button class="custom-btn" data-url="https://dialogsystem.blogspot.com/2025/08/panel-informativo-document.html"><span>Comprobar Alertas</span></button>
+      <button class="custom-btn" data-url="https://oraclewebeflow.netlify.app"><span>E-Flow</span></button>
+      <button class="custom-btn" data-url="https://oraclewebgallery.netlify.app"><span>Galería 3D</span></button>
+      <button class="custom-btn" data-url="https://grupovenus.com"><span>Grupo Venus</span></button>
+      <button class="custom-btn" data-url="https://www.instagram.com/oracle.quantum.ai"><span>Instagram Oracle</span></button>
+      <button class="custom-btn" data-url="https://mysteryplanet.com.ar/site/?"><span>Noticias alternativas</span></button>
+        <button class="custom-btn" data-url="https://oraclewebapi.netlify.app"><span>ORACLE API</span></button>
+      <button class="custom-btn" data-url="https://oraclewebpodcast.netlify.app"><span>Podcast</span></button>
     </div>    
   </main>    
   
@@ -384,6 +385,11 @@
         if(texto === "Podcast"){
       const fechaPodcast = new Date(2025, 11);
       span.style.color = (hoy < fechaPodcast) ? "red" : "white";
+    }
+    
+        if(texto === "E-Flow"){
+      const fechaEflow = new Date(2025, 11);
+      span.style.color = (hoy < fechaEflow) ? "red" : "white";
     }
 
     // Añade más botones aquí siguiendo el mismo patrón

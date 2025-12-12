@@ -277,6 +277,7 @@
       <button class="custom-btn" data-url="https://oraclewebgallery.netlify.app"><span>Galería 3D</span></button>
       <button class="custom-btn" data-url="https://grupovenus.com"><span>Grupo Venus</span></button>
       <button class="custom-btn" data-url="https://www.instagram.com/oracle.quantum.ai"><span>Instagram Oracle</span></button>
+      <button class="custom-btn" data-url="https://oraclewebmusic.netlify.app"><span>Biblioteca Musical</span></button>
       <button class="custom-btn" data-url="https://mysteryplanet.com.ar/site/?"><span>Noticias alternativas</span></button>
         <button class="custom-btn" data-url="https://oraclewebapi.netlify.app"><span>ORACLE API</span></button>
       <button class="custom-btn" data-url="https://oraclewebpodcast.netlify.app"><span>Podcast</span></button>
@@ -391,8 +392,13 @@
     }
     
         if(texto === "E-Master"){
-      const fechaEflow = new Date(2025, 12);
-      span.style.color = (hoy < fechaEflow) ? "red" : "white";
+      const fechaEMaster = new Date(2025, 12);
+      span.style.color = (hoy < fechaEMaster) ? "red" : "white";
+    }
+    
+        if(texto === "Biblioteca Musical"){
+      const fechaMusical = new Date(2026, 1);
+      span.style.color = (hoy < fechaMusical) ? "red" : "white";
     }
 
     // Añade más botones aquí siguiendo el mismo patrón

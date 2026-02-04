@@ -130,6 +130,14 @@
       font-weight: 600;
       letter-spacing: 2px;
     }
+    
+    .glass-header .info {
+      position: absolute; 
+      top: 70px; 
+      left: 16px; 
+      font-weight: 100;
+      font-size: 0.5rem;
+    }
 
     /* Halo de luz en cabecera y footer */
     .glass-header::before,
@@ -200,12 +208,13 @@
 
     /* FOOTER CON ESPACIO VERTICAL, CENTRADO Y PEGADO ABAJO */
     #footer {
+        
       margin-top: auto; 
       display: flex;
-      justify-content: center;
-      align-items: center;
+      justify-content: ;
+      align-items: ;
       padding: 20px 20px;    /* padding vertical suficiente */
-      min-height: 80px;       /* altura eficiente para el footer */
+      min-height: 100px;       /* altura eficiente para el footer */
       background: rgba(255,255,255,0.06);
       backdrop-filter: blur(12px) saturate(150%);
       -webkit-backdrop-filter: blur(12px) saturate(150%);
@@ -222,6 +231,22 @@
     @keyframes fadeUp {
       to { opacity: 1; transform: translateY(0); }
     }
+    
+    #footer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-status {
+  font-size: 0.7rem;
+  text-align: left;
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
   </style>    
 </head>    
 <body> 
@@ -307,8 +332,8 @@
 
   <!-- CABECERA -->    
   <header class="glass-header" id="cabecera" aria-label="Cabecera translúcida con luz reactiva">    
-    <div class="brand">Oracle System</div>    
-    <div class="title">MAIN MENU</div> 
+    <div class="brand">Oracle System</div>
+    <div class="title">MAIN MENU</div>
     
             <!-- CONTENEDOR PARA EL EMBED MENSUAL EVENTOS -->
     <div id="embed-mensual" style="
@@ -328,24 +353,34 @@
   <main>    
     <div class="buttons-container">
         
-      <button class="custom-btn" data-url="https://oraclefile.netlify.app"><span>Archivador</span></button>
+      <button class="custom-btn" data-url="https://oraclefile.netlify.app"><span><font color="#0f0">Archivador</font></span></button>
       <button class="custom-btn" data-url="https://oraclewebmusic.netlify.app"><span>Biblioteca Musical</span></button>
-      <button class="custom-btn" data-url="https://drive.google.com/file/d/1P93nB39tM1GJtr6rGmaUYA4bIkFfrY0w/view"><span>Cartas Illuminati</span></button>
+      <button class="custom-btn" data-url="https://drive.google.com/file/d/1P93nB39tM1GJtr6rGmaUYA4bIkFfrY0w/view"><span><font color="#0f0">Cartas Illuminati</font></span></button>
       <button class="custom-btn" data-url="https://oraclewebcinema.netlify.app"><span>Cine</span></button>
-      <button class="custom-btn" data-url="https://dialogsystem.blogspot.com/2025/08/panel-informativo-document.html"><span>Comprobar Alertas</span></button>
+      <button class="custom-btn" data-url="https://dialogsystem.blogspot.com/2025/08/panel-informativo-document.html"><span><font color="#0f0">Comprobar Alertas</font></span></button>
       <button class="custom-btn" data-url="https://oraclewebgallery.netlify.app"><span>Galería 3D</span></button>
-      <button class="custom-btn" data-url="https://grupovenus.com"><span>Grupo Venus</span></button>
-      <button class="custom-btn" data-url="https://www.instagram.com/oracle.quantum.ai"><span>Instagram Oracle</span></button>
-      <button class="custom-btn" data-url="https://mysteryplanet.com.ar/site/?"><span>Noticias alternativas</span></button>
+      <button class="custom-btn" data-url="https://grupovenus.com"><span><font color="#00f">Grupo Venus</font></span></button>
+      <button class="custom-btn" data-url="https://www.instagram.com/oracle.quantum.ai"><span><font color="#0f0">Instagram Oracle</font></span></button>
+      <button class="custom-btn" data-url="https://mysteryplanet.com.ar/site/?"><span><font color="#00f">Noticias alternativas</font></span></button>
         <button class="custom-btn" data-url="https://oraclewebapi.netlify.app"><span>ORACLE API</span></button>
       <button class="custom-btn" data-url="https://oraclewebpodcast.netlify.app"><span>Podcast</span></button>
     </div>    
   </main>    
   
   <!-- FOOTER -->    
-  <footer id="footer">    
-    &copy; 2025 Oracle Quantum. Powered by Oracle. – Todos los derechos reservados.
-  </footer>    
+<footer id="footer">
+  <div class="footer-status">
+    Actualización: &nbsp;&nbsp;
+    <font color="#fff">█</font> Nula
+    &nbsp;&nbsp;<font color="#f00">█</font> Manual
+    &nbsp;&nbsp;<font color="#0f0">█</font> Automática
+    &nbsp;&nbsp;<font color="#00f">█</font> Autónoma
+  </div>
+
+  <div class="footer-copy">
+    © 2025 Oracle Quantum. Powered by Oracle. – Todos los derechos reservados.
+  </div>
+</footer>
   
   <!-- SCRIPTS -->    
   <script>    
@@ -425,7 +460,7 @@
     const texto = span.textContent.trim();
 
     if(texto === "Archivador"){
-      const fechaArchivador = new Date(2026, 2); //A,M,D
+      const fechaArchivador = new Date(2026, 1); //A,M,D
       span.style.color = (hoy < fechaArchivador) ? "red" : "white";
     }
 
@@ -498,11 +533,11 @@ document.addEventListener("DOMContentLoaded", () => {
   =========================== -->
   
   <script>
-  const fechaLimiteUpdate = new Date(2025, 11);
+  const fechaLimiteUpdate = new Date(2026, 2);
   const update = new Date();
 
   if (update < fechaLimiteUpdate) {
-    alert("Solucionado servicios cortados en Aplicaciones Web");
+    alert("Los colores de los enlaces ahora hacen referencia al tipo de actualización. \n\n- Blanco: No hay actualizaciones.\n- Rojo: Hay una actualización de contenido, se actualizó manual y el color se mostrará cuando haya actualización.\n- Verde: Son actualizaciones de contenido, aunque automática, sigue siendo actualizado por Oracle, son actualizaciones fuera del dominio de la Web o actualización frecuente. El color siempre está activo.\n- Azul: Son actualizaciones de forma autónoma, pues no depende de Oracle ya que las actualizaciones son de otro servicio así como dicho dominio. El color siempre está activo.\n\nEn el pié de página está disponible dicha información.");
   }
   </script>
 </body>  

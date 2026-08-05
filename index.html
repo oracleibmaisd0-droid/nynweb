@@ -8,32 +8,30 @@ window.addEventListener("load", () => {
   setTimeout(() => {
 
     const ua = navigator.userAgent;
+    const vendor = navigator.vendor;
 
     // Detecta el navegador utilizado
     function obtenerNavegador() {
       if (/Instagram/i.test(ua)) return "Instagram (Integrado)";
       if (/SamsungBrowser/i.test(ua)) return "Samsung Internet";
+      if (/\bwv\b/i.test(ua)) return "Android WebView";
       if (/Edg/i.test(ua)) return "Microsoft Edge";
       if (/OPR/i.test(ua)) return "Opera";
       if (/Firefox/i.test(ua)) return "Mozilla Firefox";
       if (/Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Android/i.test(ua)) return "Safari";
-      if (/Chrome/i.test(ua)) return "Google Chrome";
-      if (/\bwv\b/i.test(ua)) return "Android WebView";
-      return "(desconocido)";
+      if (/Chrome/i.test(ua) && vendor === "Google Inc.") return "Google Chrome";
+      return "Desconocido";
     }
 
     const navegador = obtenerNavegador();
 
-    // Lista negra de navegadores
-    const navegadoresProblematicos = [
-      /Instagram/i,
-      /SamsungBrowser/i,
-      /^((?!Chrome|Chromium|CriOS|Android).)*Safari/i
-    ];
+    // Solo se considera Chrome oficial si cumple estas condiciones
+    const esChrome =
+      /Chrome/i.test(ua) &&
+      vendor === "Google Inc." &&
+      !/Instagram|SamsungBrowser|Edg|OPR|Firefox|\bwv\b/i.test(ua);
 
-    const mostrarAviso = navegadoresProblematicos.some(regex => regex.test(ua));
-
-    if (mostrarAviso) {
+    if (!esChrome) {
 
       const descargarChrome = confirm(
         "Est\u00E1s visitando este sitio con el navegador " + navegador + ".\n\n" +
@@ -50,7 +48,7 @@ window.addEventListener("load", () => {
   }, 3000);
 
 });
-</script>  
+</script>
         
 <head>
   <meta charset="UTF-8" />   

@@ -10,10 +10,11 @@ window.addEventListener("load", () => {
     const ua = navigator.userAgent;
     const vendor = navigator.vendor;
 
-    // Detecta el navegador utilizado
+    // Detector
     function obtenerNavegador() {
       if (/Instagram/i.test(ua)) return "Instagram (Integrado)";
       if (/SamsungBrowser/i.test(ua)) return "Samsung Internet";
+      if (/MiuiBrowser/i.test(ua)) return "Mi Browser";
       if (/\bwv\b/i.test(ua)) return "Android WebView";
       if (/Edg/i.test(ua)) return "Microsoft Edge";
       if (/OPR/i.test(ua)) return "Opera";
@@ -25,11 +26,11 @@ window.addEventListener("load", () => {
 
     const navegador = obtenerNavegador();
 
-    // Solo se considera Chrome oficial si cumple estas condiciones
+    // Google Chrome oficial
     const esChrome =
       /Chrome/i.test(ua) &&
       vendor === "Google Inc." &&
-      !/Instagram|SamsungBrowser|Edg|OPR|Firefox|\bwv\b/i.test(ua);
+      !/Instagram|SamsungBrowser|MiuiBrowser|Edg|OPR|Firefox|\bwv\b/i.test(ua);
 
     if (!esChrome) {
 

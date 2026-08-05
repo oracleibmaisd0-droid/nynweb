@@ -1,5 +1,57 @@
 <!DOCTYPE html>
-<html lang="es">    
+<html lang="es">
+  
+  <!-- Detector de compatibilidad (Beta) -->
+<script>
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    const ua = navigator.userAgent;
+
+    // Detecta el navegador utilizado
+    function obtenerNavegador() {
+      if (/Instagram/i.test(ua)) return "Instagram (Integrado)";
+      if (/SamsungBrowser/i.test(ua)) return "Samsung Internet";
+      if (/Edg/i.test(ua)) return "Microsoft Edge";
+      if (/OPR/i.test(ua)) return "Opera";
+      if (/Firefox/i.test(ua)) return "Mozilla Firefox";
+      if (/Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Android/i.test(ua)) return "Safari";
+      if (/Chrome/i.test(ua)) return "Google Chrome";
+      if (/\bwv\b/i.test(ua)) return "Android WebView";
+      return "(desconocido)";
+    }
+
+    const navegador = obtenerNavegador();
+
+    // Lista negra de navegadores
+    const navegadoresProblematicos = [
+      /Instagram/i,
+      /SamsungBrowser/i,
+      /^((?!Chrome|Chromium|CriOS|Android).)*Safari/i
+    ];
+
+    const mostrarAviso = navegadoresProblematicos.some(regex => regex.test(ua));
+
+    if (mostrarAviso) {
+
+      const descargarChrome = confirm(
+        "Est\u00E1s visitando este sitio con el navegador " + navegador + ".\n\n" +
+        "Para una experiencia \u00F3ptima de la web es recomendable el navegador Google Chrome, ya que est\u00E1 optimizado para la tecnolog\u00EDa m\u00E1s reciente de HTML.\n\n" +
+        "\u00BFDesea descargar el navegador Google Chrome?"
+      );
+
+      if (descargarChrome) {
+        window.location.href = "https://www.google.com/chrome/";
+      }
+
+    }
+
+  }, 5000);
+
+});
+</script>  
+        
 <head>
   <meta charset="UTF-8" />   
   <title>Oracle MAIN MENU</title>

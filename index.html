@@ -13,6 +13,7 @@ window.addEventListener("load", () => {
     // Detector
     function obtenerNavegador() {
       if (/Instagram/i.test(ua)) return "Instagram (Integrado)";
+      if (/FBAN|FBAV/i.test(ua)) return "Facebook (Integrado)";
       if (/SamsungBrowser/i.test(ua)) return "Samsung Internet";
       if (/MiuiBrowser/i.test(ua)) return "Mi Browser";
       if (/\bwv\b/i.test(ua)) return "Android WebView";
@@ -30,7 +31,7 @@ window.addEventListener("load", () => {
     const esChrome =
       /Chrome/i.test(ua) &&
       vendor === "Google Inc." &&
-      !/Instagram|SamsungBrowser|MiuiBrowser|Edg|OPR|Firefox|\bwv\b/i.test(ua);
+      !/FBAN|FBAV|Instagram|SamsungBrowser|MiuiBrowser|Edg|OPR|Firefox|\bwv\b/i.test(ua);
 
     if (!esChrome) {
 

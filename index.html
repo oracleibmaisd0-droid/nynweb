@@ -21,7 +21,10 @@ window.addEventListener("load", () => {
       if (/OPR/i.test(ua)) return "Opera";
       if (/Firefox/i.test(ua)) return "Mozilla Firefox";
       if (/Safari/i.test(ua) && !/Chrome|Chromium|CriOS|Android/i.test(ua)) return "Safari";
-      if (/Chrome/i.test(ua) && vendor === "Google Inc.") return "Google Chrome";
+      if (/Chrome|CriOS/i.test(ua) &&
+    (vendor === "Google Inc." || /CriOS/i.test(ua))) {
+  return "Google Chrome";
+}
       return "Desconocido";
     }
 
@@ -38,12 +41,42 @@ window.addEventListener("load", () => {
       const descargarChrome = confirm(
         "Est\u00E1s visitando este sitio con el navegador " + navegador + ".\n\n" +
         "Para una experiencia \u00F3ptima de la web es recomendable el navegador Google Chrome, ya que est\u00E1 optimizado para la tecnolog\u00EDa m\u00E1s reciente de HTML.\n\n" +
-        "\u00BFDesea descargar el navegador Google Chrome?"
+        "\u00BFDesea abrriir o descargar el navegador Google Chrome?"
       );
 
-      if (descargarChrome) {
-        window.location.href = "https://www.google.com/chrome/";
-      }
+if (descargarChrome) {
+
+    const ua = navigator.userAgent;
+
+    // Android
+    if (/Android/i.test(ua)) {
+
+        const url = location.href.replace(/^https?:\/\//i, "");
+
+        window.location.href =
+            "intent://" + url +
+            "#Intent;scheme=https;package=com.android.chrome;end";
+
+    }
+
+    // iPhone / iPad
+    else if (/iPhone|iPad|iPod/i.test(ua)) {
+
+        window.location.href =
+            "googlechrome://" +
+            location.href.replace(/^https?:\/\//i, "");
+
+    }
+
+    // Windows / macOS / Linux
+    else {
+
+        window.location.href =
+            "googlechrome://" +
+            location.href.replace(/^https?:\/\//i, "");
+
+    }
+}
 
     }
 

@@ -74,10 +74,18 @@ if (descargarChrome) {
         window.location.href =
             "googlechrome://" +
             location.href.replace(/^https?:\/\//i, "");
+            
+    // Si Chrome no se abre, después de 2 segundos
+          // ir a la página oficial de descarga de Chrome
+          setTimeout(() => {
 
-    }
-}
+            window.location.href =
+              "https://www.google.com/intl/es_es/chrome/";
 
+          }, 2000);
+            
+      }
+     }
     }
 
   }, 3000);

@@ -31,10 +31,10 @@ window.addEventListener("load", () => {
     const navegador = obtenerNavegador();
 
     // Google Chrome oficial
-    const esChrome =
-      /Chrome/i.test(ua) &&
-      vendor === "Google Inc." &&
-      !/FBAN|FBAV|Instagram|SamsungBrowser|MiuiBrowser|Edg|OPR|Firefox|\bwv\b/i.test(ua);
+const esChrome =
+  (/Chrome/i.test(ua) || /CriOS/i.test(ua)) &&
+  (vendor === "Google Inc." || /CriOS/i.test(ua)) &&
+  !/FBAN|FBAV|Instagram|SamsungBrowser|MiuiBrowser|Edg|OPR|Firefox|\bwv\b/i.test(ua);
 
     if (!esChrome) {
 

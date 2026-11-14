@@ -59,14 +59,58 @@ if (descargarChrome) {
 
     }
 
-    // iPhone / iPad
-    else if (/iPhone|iPad|iPod/i.test(ua)) {
+// iPhone / iPad
+else if (/iPhone|iPad|iPod/i.test(ua)) {
 
-        window.location.href =
-            "googlechrome://" +
-            location.href.replace(/^https?:\/\//i, "");
+    // Obtener dirección actual
+    const urlActual = location.href;
 
-    }
+    // Diferenciar HTTP y HTTPS
+    const protocolo = urlActual.startsWith("https://")
+        ? "googlechromes://"
+        : "googlechrome://";
+
+    const urlChrome =
+        protocolo + urlActual.replace(/^https?:\/\//i, "");
+
+    // Tiempo de espera para comprobar si Chrome se abre
+    let chromeAbierto = false;
+
+    // Si la página pasa a segundo plano, asumimos que Chrome se ha abierto
+    const cancelarRedireccion = () => {
+        chromeAbierto = true;
+        clearTimeout(redireccionAppStore);
+    };
+
+    document.addEventListener(
+        "visibilitychange",
+        () => {
+            if (document.hidden) cancelarRedireccion();
+        }
+    );
+
+    window.addEventListener(
+        "pagehide",
+        cancelarRedireccion,
+        { once: true }
+    );
+
+    // Intentar abrir Google Chrome
+    window.location.href = urlChrome;
+
+    // Si no se abre, dirigir a la App Store
+    const redireccionAppStore = setTimeout(() => {
+
+        if (!chromeAbierto) {
+
+            window.location.href =
+                "https://apps.apple.com/es/app/google-chrome/id535886823";
+
+        }
+
+    }, 1800);
+
+}
 
     // Windows / macOS / Linux
     else {
